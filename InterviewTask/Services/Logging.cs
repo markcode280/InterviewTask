@@ -24,6 +24,7 @@ namespace InterviewTask.Services
             else
             {
                 File.Create(filePath);
+                File.WriteAllText(filePath + Environment.NewLine, text);
             }
         }
     }
