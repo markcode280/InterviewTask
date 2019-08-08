@@ -156,6 +156,8 @@
     <Compile Include="Services\IBaseApi.cs" />
     <Compile Include="Services\IHelperApiService.cs" />
     <Compile Include="Services\IHelperServiceRepository.cs" />
+    <Compile Include="Services\ILoggingService.cs" />
+    <Compile Include="Services\Logging.cs" />
     <Compile Include="ViewModel\HelperViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

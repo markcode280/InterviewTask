@@ -9,9 +9,10 @@ namespace InterviewTask.Services
 {
     public class BaseApi:HttpClient
     {
-
-        public BaseApi(string baseUrl)
+        private ILoggingService loggingService;
+        public BaseApi(string baseUrl,ILoggingService Logging)
         {
+            loggingService = Logging;
             this.BaseAddress = new Uri(baseUrl);
         }
 
@@ -33,7 +34,9 @@ namespace InterviewTask.Services
             }
             catch (Exception e)
             {
+                loggingService.Log(e.Message + " " + e.InnerException.Message);
                 throw new HttpRequestException(e.Message + " " + e.InnerException.Message);
+                
             }
 
         }
@@ -50,13 +53,14 @@ namespace InterviewTask.Services
                     }
                     else
                     {
-
+                        loggingService.Log(response.Content.ReadAsStringAsync().Result);
                         throw new HttpRequestException(response.Content.ReadAsStringAsync().Result);
                     }
                 }
             }
             catch (Exception e)
             {
+                loggingService.Log(e.Message + " " + e.InnerException.Message);
                 throw new HttpRequestException(e.Message + " " + e.InnerException.Message);
             }
 

@@ -11,8 +11,11 @@ namespace InterviewTask.Controllers
     {
         private IHelperServiceRepository helperServiceRepository;
         private IHelperApiService serviceProvider;
+        private ILoggingService loggingService;
+
         public HomeController()
         {
+            loggingService = new LoggingService(Environment.CurrentDirectory+"/Log.txt");
             helperServiceRepository = new HelperServiceRepository();
             serviceProvider = new HelperApiService("https://openweathermap.org");
         }
@@ -21,8 +24,10 @@ namespace InterviewTask.Controllers
          */
         public ActionResult Index()
         {
+            
             var helpers = helperServiceRepository.Get();
             var helperViewModel = new List<HelperViewModel>();
+
             foreach (var help in helpers)
             {
                 helperViewModel.Add(new HelperViewModel()
@@ -46,8 +51,10 @@ namespace InterviewTask.Controllers
             }
             {
                 ModelState.AddModelError("Null", "No Times Available");
+                loggingService.Log("No Times Available");
             }
             ModelState.AddModelError("Null", "Issue Loading entry's");
+            loggingService.Log("Issue Loading entry's");
             return View("Error",ModelState);
             
         }
@@ -65,6 +72,7 @@ namespace InterviewTask.Controllers
             {
                 
                 ModelState.AddModelError("Null", " Selection Not Presented");
+                loggingService.Log("Selection Not Presented");
                 return View("Error",ModelState["Null"].Errors);
             }
            

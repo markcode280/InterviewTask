@@ -176,29 +176,34 @@ namespace InterviewTask.Services
         private static List<HelperServiceModel> DeliberateBug(List<HelperServiceModel> openingHours)
         {
            
-
+           
             var rnd = new Random();
-
-            if (openingHours != null) // not needed as never is null
+            try
             {
-                var listCount = openingHours.Count;
-                if (openingHours.Any() && listCount > 0) 
+                if (openingHours != null) // not needed as never is null
                 {
-                    
-                    var elementToDayNull = rnd.Next(0, listCount - 1);
-
-                    //Simulate a lack of response from the server: 10% of the time, set weekday opening hours to null
-                    // Handle this bug in your view - a simple error message (We're sorry, we are temporarily unable to display etc etc ) in the view cards is fine
-                    if (rnd.Next(1, 10) > 9)
+                    var listCount = openingHours.Count;
+                    if (openingHours.Any() && listCount > 0)
                     {
-                        openingHours[elementToDayNull].MondayOpeningHours = null; 
-                        openingHours[elementToDayNull].TuesdayOpeningHours = null;
-                        openingHours[elementToDayNull].WednesdayOpeningHours = null;
-                        openingHours[elementToDayNull].ThursdayOpeningHours = null;
-                        openingHours[elementToDayNull].FridayOpeningHours = null;
+
+                        var elementToDayNull = rnd.Next(0, listCount - 1);
+
+                        //Simulate a lack of response from the server: 10% of the time, set weekday opening hours to null
+                        // Handle this bug in your view - a simple error message (We're sorry, we are temporarily unable to display etc etc ) in the view cards is fine
+                        if (rnd.Next(1, 10) > 9)
+                        {
+                            openingHours[elementToDayNull].MondayOpeningHours = null;
+                            openingHours[elementToDayNull].TuesdayOpeningHours = null;
+                            openingHours[elementToDayNull].WednesdayOpeningHours = null;
+                            openingHours[elementToDayNull].ThursdayOpeningHours = null;
+                            openingHours[elementToDayNull].FridayOpeningHours = null;
+                        }
                     }
+
                 }
-              
+            }catch(Exception e)
+            {
+                // call logging service
             }
          
 
