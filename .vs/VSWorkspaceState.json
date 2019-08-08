@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\InterviewTask",
+    "\\InterviewTask\\App_Start",
+    "\\InterviewTask\\Controllers",
+    "\\InterviewTask\\Extensions",
+    "\\InterviewTask\\Models",
+    "\\InterviewTask\\Services",
+    "\\InterviewTask\\Views",
+    "\\InterviewTask\\Views\\Home",
+    "\\InterviewTask\\Views\\Shared"
+  ],
+  "SelectedNode": "\\InterviewTask\\Views\\Home\\Hours.cshtml",
+  "PreviewInSolutionExplorer": false
+}

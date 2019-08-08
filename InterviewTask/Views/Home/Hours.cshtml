@@ -1,0 +1,14 @@
+﻿@model InterviewTask.Models.HelperServiceModel
+<h1>@Html.DisplayFor(x => x.Title)</h1>
+<br />
+<h3>@Html.DisplayFor(x => x.Description)</h3>
+<br />
+<p>@Html.DisplayNameFor(z => z.MondayOpeningHours): @Html.DisplayFor(x => x.MondayOpeningHours)</p> <!--I would design classes better-->
+<p>@Html.DisplayNameFor(x => x.TuesdayOpeningHours): @Html.DisplayFor(x => x.TuesdayOpeningHours)</p>
+<p>@Html.DisplayNameFor(x => x.WednesdayOpeningHours): @Html.DisplayFor(x => x.WednesdayOpeningHours)</p>
+<p>@Html.DisplayNameFor(x => x.ThursdayOpeningHours): @Html.DisplayFor(x => x.ThursdayOpeningHours)</p>
+<p>@Html.DisplayNameFor(x => x.FridayOpeningHours): @Html.DisplayFor(x => x.FridayOpeningHours)</p>
+<p>@Html.DisplayNameFor(x => x.SaturdayOpeningHours): @Html.DisplayFor(x => x.SaturdayOpeningHours)</p>
+<p>@Html.DisplayNameFor(x => x.SundayOpeningHours): @Html.DisplayFor(x => x.SundayOpeningHours)</p>
+@Html.HiddenFor(z => z.Id)
+

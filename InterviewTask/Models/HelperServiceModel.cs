@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace InterviewTask.Models
 {
@@ -7,15 +8,23 @@ namespace InterviewTask.Models
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
+        [Display(Name ="Description")]
         public string Description { get; set; }
         public string TelephoneNumber { get; set; }
-
-        public List<int> MondayOpeningHours { get; set; }
+        [Display(Name = "Monday Opening Hours")]
+        
+        public List<int> MondayOpeningHours { get ; set; }
+        [Display(Name = "Monday Opening Hours")]
         public List<int> TuesdayOpeningHours { get; set; }
+        [Display(Name = "Monday Opening Hours")]
         public List<int> WednesdayOpeningHours { get; set; }
+        [Display(Name = "Monday Opening Hours")]
         public List<int> ThursdayOpeningHours { get; set; }
+        [Display(Name = "Monday Opening Hours")]
         public List<int> FridayOpeningHours { get; set; }
+        [Display(Name = "Monday Opening Hours")]
         public List<int> SaturdayOpeningHours { get; set; }
+        [Display(Name = "Monday Opening Hours")]
         public List<int> SundayOpeningHours { get; set; }
     }
 }
