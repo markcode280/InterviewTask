@@ -20,30 +20,40 @@ namespace InterviewTask.Controllers
         public ActionResult Index()
         {
             var helpers = helperServiceRepository.Get();
-            if(helpers!= null)
+
+            if (!helpers.Where(x => x.MondayOpeningHours == null || x.TuesdayOpeningHours == null ||
+             x.WednesdayOpeningHours == null || x.ThursdayOpeningHours == null || x.FridayOpeningHours == null ||
+             x.SaturdayOpeningHours == null || x.SundayOpeningHours == null).Any()) // I would always do checking before Controller in seperate IService interface
             {
-                if (helpers.Any() && helpers.Count()>1)
+                if (helpers != null)
                 {
-                    return View(helpers);
+                    if (helpers.Any() && helpers.Count() > 1)
+                    {
+                        return View(helpers);
+                    }
                 }
             }
-
+            {
+                ModelState.AddModelError("Null", "No Times Available");
+            }
             ModelState.AddModelError("Null", "Issue Loading entry's");
-            return View(ModelState);
+            return View("Error",ModelState);
             
         }
 
         public ActionResult GetByID(Guid id)
         {
-            if (id != null)
+            var helper = helperServiceRepository?.Get(id);
+            helper = null;
+            if (helper != null ) 
             {
-                var helper = helperServiceRepository.Get(id);
+                
                 return PartialView("Hours", helper);
             }
             else
             {
-                ModelState.AddModelError("Null", "No Id Presented");
-                return View("Shared/Error");
+                ModelState.AddModelError("Null", " Selection Not Presented");
+                return View("Error",ModelState);
             }
            
         }
