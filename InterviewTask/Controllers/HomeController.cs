@@ -17,7 +17,7 @@ namespace InterviewTask.Controllers
         {
             loggingService = new LoggingService(Environment.CurrentDirectory+"/Log.txt");
             helperServiceRepository = new HelperServiceRepository();
-            serviceProvider = new HelperApiService("https://openweathermap.org",loggingService);
+            serviceProvider = new HelperApiService("https://openweathermap.org/",loggingService);
         }
         /*
          * Prepare your opening times here using the provided HelperServiceRepository class.       
