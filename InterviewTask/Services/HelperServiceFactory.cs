@@ -7,6 +7,7 @@ namespace InterviewTask.Services
 {
     public class HelperServiceFactory
     {
+
         internal static List<HelperServiceModel> Create()
         {
             var weekdayOpeningTimes = new List<int> { 9, 17 };
