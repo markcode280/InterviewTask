@@ -19,7 +19,7 @@ namespace InterviewTask.Services
         {
             if (File.Exists(filePath))
             {
-                File.WriteAllText(filePath, text);
+                File.WriteAllText(filePath+Environment.NewLine, text);
             }
             else
             {
